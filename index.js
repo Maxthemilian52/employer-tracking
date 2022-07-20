@@ -21,7 +21,7 @@ const begin = () => {
             type: 'list',
             name: 'choice',
             message: "Hello! Please choose what you'd like to do!",
-            choices: ['View All Employees', 'View All Roles', 'View All Departments', 'Add Employee', 'Add Role', 'Add Department',  'Update Employee Role']
+            choices: ['View All Employees', 'View All Roles', 'View All Departments', 'Add Employee', 'Add Role', 'Add Department']
         }
     ])
 }
@@ -47,6 +47,9 @@ const menu = () => {
         case 'Add Department':
             addDepartment();
             break;
+        // case 'Update Employee Role':
+        //     updateRole();
+        //     break;
         }
     })
 }
@@ -118,9 +121,10 @@ const addEmployee = () => {
           return 'error'
         }
         console.table(res);
+        menu();
       });
     
-      menu();
+      
     });
   }
   const addDepartment = () => {
@@ -141,11 +145,20 @@ const addEmployee = () => {
           return 'error'
         }
         console.table(res);
+        menu();
       });
-    
-      menu();
     });
   }
+//   const updateRole = () => {
+//     return inquirer.prompt([
+//         {
+//             type: 'input',
+//             name: 'roleName',
+//             message: 'Please enter name of new Role.'
+//           }
+//     ])
+//     .then((data) )
+//   }
   const addRole = () => {
     return inquirer.prompt([
       {
@@ -174,9 +187,8 @@ const addEmployee = () => {
           return 'error'
         }
         console.table(res);
+        menu();
       });
-    
-      menu();
     });
   }
   
